@@ -1,0 +1,23 @@
+# python
+__pycache__/
+*.pyc
+
+# virtual env
+.venv/
+env/
+
+# mac
+.DS_Store
+
+# vector db
+data/
+
+# logs
+*.log
+
+# poetry cache
+.poetry/
+
+# IDE
+.vscode/
+.idea/
