@@ -24,6 +24,10 @@ chromadb = "^1.5.5"
 agent = "scripts.run_agent:main"
 api = "app.main:main"
 
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.15.5"
+mypy = "^1.19.1"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
