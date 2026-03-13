@@ -1,7 +1,13 @@
-from langchain_core.tools import tool
+"""Deprecated: tool definitions have moved to ``app/tools/``.
 
+This module is kept for backward-compatibility only.  Import tools from the
+new location instead:
 
-@tool
-def get_weather(city: str) -> str:
-    """Get weather of a city"""
-    return f"The weather in {city} is sunny."
+    from app.tools.registry import get_tools          # all tools
+    from app.tools.weather import get_weather         # individual tool
+"""
+
+# Re-export the moved symbol so any code that still imports from here works.
+from app.tools.weather import get_weather  # noqa: F401
+
+__all__ = ["get_weather"]

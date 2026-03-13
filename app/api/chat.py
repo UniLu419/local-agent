@@ -1,12 +1,11 @@
 import json
-from collections.abc import Iterator
+from collections.abc import Generator
 
 from fastapi import APIRouter
 from fastapi.responses import StreamingResponse
 
 from app.agent.model import get_llm
-from app.schemas.chat import ChatRequest, ChatResponse
-from app.schemas.openai import ChatCompletionRequest
+from app.schemas.chat import ChatRequest
 
 
 router = APIRouter()
@@ -21,7 +20,7 @@ def _content_to_text(content: object) -> str:
     return json.dumps(content, ensure_ascii=False, default=str)
 
 
-def stream_agent(message: str):
+def stream_agent(message: str) -> Generator[str, None, None]:
     for chunk in llm.stream(message):
         text = _content_to_text(chunk.content)
         if text:

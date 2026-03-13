@@ -11,9 +11,8 @@ for key in (
 ):
     os.environ.pop(key, None)
 
-from langchain_ollama import ChatOllama
-
-from app.core.config import settings
+from langchain_ollama import ChatOllama  # noqa: E402
+from app.core.config import settings  # noqa: E402
 
 
 def get_llm() -> ChatOllama:
